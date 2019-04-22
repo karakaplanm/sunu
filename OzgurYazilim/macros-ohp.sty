@@ -1,0 +1,154 @@
+\usepackage{etex} %used to solve the "Beamer and No room for new \dimen" problem
+
+\usepackage{hyperref}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz}
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{subfigure}
+\usepackage[export]{adjustbox}
+\usepackage{animate}
+\usepackage{xmpmulti}
+%\usepackage{multimedia}
+\usepackage[dvipdfmx]{movie15}
+
+\usepackage{caption}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage[export]{adjustbox}
+\usepackage[notocbib]{apacite}
+\usepackage[normalem]{ulem}
+
+\usepackage{xyling}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{xspace}
+\usepackage{relsize}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+\makeatletter
+\usepackage[english]{babel}
+
+\makeatother
+\usepackage{graphicx}
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]} \let\endchangemargin=\endlist
+
+%\usepackage[texcoord,grid,gridunit=mm,gridcolor=red!10,subgridcolor=green!10]
+%{eso-pic}
+
+\usepackage[tikz]{bclogo}
+\newenvironment{hilit}[2][\bclampe]{\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=#1,ombre=true]{\smaller[2] #2}\smaller[2]}{\end{bclogo}}
+
+\definecolor{shadecolor}{rgb}{0.01,0.199,0.1}
+
+
+\usepackage{arydshln,slashbox,enumerate,amsmath}
+\usepackage{framed,pifont}
+\usepackage{textcomp}
+\usepackage{geometry}
+\usepackage[absolute,overlay]{textpos}
+
+%\usepackage[texcoord,grid,gridunit=mm,gridcolor=red!10,subgridcolor=green!10]
+%{eso-pic}
+
+\mode<presentation>
+{
+\usetheme{default}
+\useinnertheme{circles}
+\setbeamerfont{structure}{size=\larger}
+\setbeamerfont{title}{size=\larger[1]}
+\setbeamerfont*{frametitle}{size=\larger[1]}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{structure}{fg=black}
+\setbeamersize{text margin left=0.8cm}
+\setbeamersize{text margin right=0.8cm}
+}
+
+\usepackage[notocbib]{apacite}
+\beamertemplatenavigationsymbolsempty
+\newcommand{\attribution}[1]{\vfill\vspace*{-1.2cm}\begin{scriptsize}\smaller\textbf{Source(s):}
+    #1\end{scriptsize}}
+    
+\newcommand{\references}[1]{\textcolor{blue}{\scriptsize{(#1)}}}
+\newcommand{\singleitem}[1]{\begin{itemize} \item{#1} \end{itemize}\vspace{-2mm}}
+\newcommand{\etal}{et. al.}
+\newcommand{\argmin}{\arg\!\min}
+\newcommand{\argmax}{\arg\!\max}
+
+\setbeamertemplate{headline}[my header]
+
+\setbeamertemplate{frametitle}{
+\begin{centering}
+	\begin{textblock*}{180mm}(-25mm,15mm)
+		\insertframetitle
+	\end{textblock*}
+\end{centering}
+}
+
+\setbeamertemplate{title page}{
+	\tikz[remember picture,overlay] 
+    \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{imgs/background.png}};
+	\begin{center}
+		\begin{textblock*}{180mm}(-36mm,55mm)
+			\begin{center}
+                \color{white}
+                \textbf{
+                    \presentationtitle}
+			\end{center}
+		\end{textblock*}
+
+		\begin{textblock*}{180mm}(-36mm,60mm)
+			\begin{center}
+                \color{white}
+                \textbf{
+				\insertauthor
+            }
+			\end{center}
+		\end{textblock*}
+
+		\begin{textblock*}{180mm}(-36mm,75mm)
+			\begin{center}
+                {\fontsize{10}{8} \selectfont
+                \color{white}
+                \insertdate}
+			\end{center}
+		\end{textblock*}
+		
+		\begin{textblock*}{60mm}(24mm,90.5mm)
+            {\fontsize{4.5}{5.5}\selectfont \color{white} TÜBİTAK ULAKBİM ve Samsun Anadolu Lisesi tarafından organize edilmiştir.\par}
+		\end{textblock*}
+		
+	\end{center}
+    }
+    
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headsep}{10pt}
+
+\chead{
+    \tikz[remember picture,overlay]
+    \node[opacity=1,inner sep=-1pt,anchor=north] at (current page.north){\includegraphics[width=\paperwidth]{imgs/header.pdf}};
+}
+
+\cfoot{
+    \begin{tikzpicture}[remember picture, inner sep=-1pt,overlay]
+    \node[opacity=1, anchor=south] at (current page.south) {\includegraphics[width=\paperwidth]{imgs/footer.pdf}};
+    \node[above, inner sep=5pt, text width=\paperwidth, align=right] at (current page.south){%
+        \usebeamerfont{footline}%
+        \color{white}%
+        \textbf{\insertframenumber/\inserttotalframenumber} \enskip\quad\null};
+    \node[above, inner sep=5.5pt, text width=\paperwidth, align=left] at (current page.south){%
+        \usebeamerfont{footline}%
+        \color{white}%
+        \quad \textbf{\presentationtitle}};
+    \end{tikzpicture}
+}
